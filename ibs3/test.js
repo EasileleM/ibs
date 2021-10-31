@@ -1,9 +1,9 @@
 const xmlConverter = require('xml-js');
 const rsa = require('js-crypto-rsa');
 const fs = require('fs');
-const {removeJsonTextAttribute} = require('./utils');
+const {removeJsonTextAttribute} = require('../utils');
 
-const keysFile = process.argv[3] || './ibs3/keys.xml'
+const keysFile = process.argv[3] || './keys.xml'
 
 const {keys: {publicKey, privateKey}} = JSON.parse(
     xmlConverter.xml2json(fs.readFileSync(keysFile, 'utf8'), {compact: true, textFn: removeJsonTextAttribute})
